@@ -1,0 +1,61 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 09/27/2017 02:37:31 PM
+// Design Name: 
+// Module Name: mux_test
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module mux_test;
+    //initialize registers
+    reg d0;
+    reg d1;
+    reg d2;
+    reg d3;
+    //initialize 2-bit register
+    reg [1:0] select;
+    //initialize wire
+    wire dOut;
+    
+    
+    //test the p1 module with the above variables as arguments
+    p1 test(d0, d1, d2, d3, select, dOut);
+    
+    initial //run once:
+    begin
+        //set MUX inputs
+        d0 = 1;
+        d1 = 0;
+        d2 = 1;
+        d3 = 0;
+        
+        //iterate through 2-bit select inputs on MUX
+        select = 2'b00;
+        #50;
+
+        select = 2'b01;
+        #50;
+        
+        select = 2'b10;
+        #50;
+        
+        select = 2'b11;
+        #50;
+        
+    end
+
+endmodule

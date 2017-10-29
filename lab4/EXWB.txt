@@ -1,0 +1,87 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/25/2017 02:26:39 PM
+// Design Name: 
+// Module Name: EXWB
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module EXWB(clock,n,n_o,z,z_o,regwrt,regwrt_o,memtoreg,memtoreg_o,pctoreg,pctoreg_o,branchneg,branchneg_o,branchzero,branchzero_o,jump,jump_o,jumpmem,jumpmem_o,alu,alu_o,datamem,datamem_o,rd,rd_o,adder,adder_o);
+
+    input clock;
+    //initialize inputs
+    input n;
+    input z;
+    
+    input regwrt;
+    input memtoreg;
+    input pctoreg;
+    input branchneg;
+    input branchzero;
+    input jump;
+    input jumpmem;
+    
+    input [31:0] alu;
+    
+    input [31:0] datamem;
+    
+    input [5:0] rd;
+    
+    input [31:0] adder;
+    //initialize outputs
+    output reg n_o;
+    output reg z_o;
+    
+    output reg regwrt_o;
+    output reg memtoreg_o;
+    output reg pctoreg_o;
+    output reg branchneg_o;
+    output reg branchzero_o;
+    output reg jump_o;
+    output reg jumpmem_o;
+    
+    output reg [31:0] alu_o;
+    
+    output reg [31:0] datamem_o;
+    
+    output reg [5:0] rd_o;
+    
+    output reg [31:0] adder_o;
+
+
+    always@(posedge clock)
+    begin
+        //set outputs to inputs
+       n_o = n;
+       z_o = z;
+       regwrt_o = regwrt;
+       memtoreg_o = memtoreg;
+       pctoreg_o = pctoreg;
+       branchneg_o = branchneg;
+       branchzero_o = branchzero;
+       alu_o = alu;
+       jump_o = jump;
+       jumpmem_o = jumpmem;
+       
+       datamem_o = datamem;
+       rd_o = rd;
+       
+       adder_o = adder;
+    end
+
+endmodule
+

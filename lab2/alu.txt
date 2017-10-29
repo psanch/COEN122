@@ -1,0 +1,85 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/04/2017 02:30:22 PM
+// Design Name: 
+// Module Name: alu
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module alu(a,b,out,op,negative,zero);
+
+//initialize io
+
+input [31:0] a;
+input [31:0] b;
+output reg [31:0] out;
+//register is for when we are going to change the value stored there
+input [3:0] op;
+
+output reg negative;
+output reg zero;
+
+//set valid inputs
+
+always@(a,b,op)
+begin
+    //add a+b
+    if(op == 4'b0000)
+    begin
+        out = a + b;
+    end
+    //increment b
+    else if(op == 4'b0001)
+    begin
+        out = b + 1;
+    end
+    //negate 0 + ~a
+    else if(op == 4'b0010)
+    begin
+        out = (~a) + 1;
+    end
+    //subtract b + ~a
+    else if(op == 4'b0011)
+    begin
+        out = b + ( (~a) + 1 );
+    end
+    //pass a + 0
+    else if(op == 4'b0100)
+    begin
+        out = a;
+    end
+end
+
+//once output is valid set flags
+always@(out)
+begin
+    zero = 0;//assume not zero
+    if(out == 0)
+    begin
+        zero = 1;//if 0 set flag
+    end
+    
+    negative = 0;//assume positive
+    if(out[31] == 1)
+    begin
+        negative = 1;//if negative set flag
+    end
+    
+end
+
+
+endmodule

@@ -1,0 +1,48 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 09/27/2017 02:22:08 PM
+// Design Name: 
+// Module Name: p1
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module p1(data0, data1, data2, data3, select, dataOut);
+//define inputs
+input data0;
+input data1;
+input data2;
+input data3;
+//define 2-bit select line
+input [1:0] select;
+//define output
+output reg dataOut;
+
+always @(data0 ,data1 ,data2 ,data3 ,select ) //run the following code as long as inputs are valid:
+begin //{
+//define MUX behavior
+if(select == 2'b00) //00 selects data0
+    dataOut = data0;
+else if(select == 2'b01) //01 selects data1
+    dataOut = data1;
+else if(select == 2'b10)//10 selects data2
+    dataOut = data2;
+else if(select == 2'b11)//11 selects data3
+    dataOut = data3;
+
+end //}
+
+endmodule

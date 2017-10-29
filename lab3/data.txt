@@ -1,0 +1,62 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/11/2017 02:58:40 PM
+// Design Name: 
+// Module Name: data
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module data(clock,write,read,addin,writein,dataout);
+//initialize IO
+input clock;
+input write;
+input read;
+//initialize static memory
+reg [31:0] blocks [65535:0];
+
+input [31:0] addin;
+input [31:0] writein;
+
+output reg [31:0] dataout;
+
+always@(posedge clock)
+begin
+    //read data from blocks[i] into dataout
+    if (read == 1)
+    begin
+    
+        dataout = blocks[addin[15:0]];
+        
+    end
+    
+    //write data from writein into blocks[i]
+    if (write == 1)
+    begin
+    
+        blocks[addin[15:0]] = writein;
+    
+    end
+    
+
+
+
+
+end
+
+
+
+endmodule

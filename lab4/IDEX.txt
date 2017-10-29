@@ -1,0 +1,83 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/25/2017 02:26:14 PM
+// Design Name: 
+// Module Name: IDEX
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module IDEX(clock,regwrt,memtoreg,pctoreg,branchneg,branchzero,aluop,memread,memwrt,jump,jumpmem,rs,rt,rd,adder,regwrt_o,memtoreg_o,pctoreg_o,branchneg_o,branchzero_o,aluop_o,memread_o,memwrt_o,jump_o,jumpmem_o,rs_o,rt_o,rd_o,adder_o);
+
+        input clock;
+        //initialize inputs
+		input regwrt;
+		input memtoreg;
+		input pctoreg;
+		input branchzero;
+		input [3:0] aluop;
+		input memread;
+		input memwrt;
+		input jump;
+		input jumpmem;
+		input branchneg;
+		
+		input [31:0] rs;
+		input [31:0] rt;
+		input [5:0] rd;
+		
+		input [31:0] adder;
+        //initialize OUTPUT
+        output reg regwrt_o;
+		output reg memtoreg_o;
+		output reg pctoreg_o;
+		output reg branchzero_o;
+		output reg [3:0] aluop_o;
+		output reg memread_o;
+		output reg memwrt_o;
+		output reg jump_o;
+		output reg jumpmem_o;
+		output reg branchneg_o;
+		
+		output reg [31:0] rs_o;
+		output reg [31:0] rt_o;
+		output reg [5:0] rd_o;
+		
+		output reg [31:0] adder_o;
+		
+		always@(posedge clock)
+        begin
+           //set outputs to inputs
+           regwrt_o = regwrt;
+           memtoreg_o = memtoreg;
+           pctoreg_o = pctoreg;
+           branchneg_o = branchneg;
+           branchzero_o = branchzero;
+           aluop_o = aluop;
+           memread_o = memread;
+           memwrt_o = memwrt;
+           jump_o = jump;
+           jumpmem_o = jumpmem;
+           
+           rs_o = rs;
+           rt_o = rt;
+           rd_o = rd;
+           
+           adder_o = adder;
+        
+        end
+
+endmodule

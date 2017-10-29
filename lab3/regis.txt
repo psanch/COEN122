@@ -1,0 +1,57 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/11/2017 02:43:32 PM
+// Design Name: 
+// Module Name: regis
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module regis(clock, write,sixa,sixb,sixc,writein,sout,tout);
+//init IO
+input clock;
+input write;
+
+input [5:0] sixa;
+input [5:0] sixb;
+input [5:0] sixc;
+input [31:0] writein;
+//init static memory
+reg [31:0] regis [63:0];
+
+output reg [31:0] sout;
+output reg [31:0] tout;
+
+always@(posedge clock)
+begin
+    //writein at address sixc in regis
+    if (write == 1)
+        
+        regis[sixc] = writein;
+    
+    else if (write == 0)
+    begin
+    
+    //get data at 6a and 6b inside regis into sout and tout respectively
+    sout = regis[sixa];
+    tout = regis[sixb];
+   
+    
+    end
+
+
+end
+endmodule

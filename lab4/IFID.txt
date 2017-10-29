@@ -1,0 +1,40 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/25/2017 02:25:00 PM
+// Design Name: 
+// Module Name: IFID
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module IFID(clock,adr8,ins,adr8_o,ins_o);
+//initialize input
+input clock;
+input [7:0]adr8;
+input [31:0] ins;
+//initialize output
+output reg [7:0]adr8_o;
+output reg [31:0] ins_o;
+
+always@(posedge clock)
+begin
+    //set outputs to inputs
+    ins_o = ins;
+    adr8_o = adr8;
+
+end
+
+endmodule

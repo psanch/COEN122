@@ -1,0 +1,113 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/04/2017 02:50:26 PM
+// Design Name: 
+// Module Name: alu_test
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module alu_test;
+
+	//intialize io
+    
+    reg [31:0] a;
+    reg [31:0] b;
+    wire [31:0] out;
+    
+    reg [3:0] op;
+    
+    wire negative;
+    wire zero;
+    
+    //test alu with these as inputs
+    alu test(a,b,out,op,negative,zero);
+    
+    initial
+    begin
+        
+        //test positive & addition
+        a = 1;
+        b = 1;
+        op = 4'b0000;
+        
+        #100
+        
+        //test positive & addition
+        a = 3;
+        b = 1;
+        op = 4'b0000;
+        
+        #100
+        
+        //test increment b
+        a = 0;
+        b = 1;
+        op = 4'b0001;
+        
+        #100
+
+        //test increment b
+        a = 0;
+        b = 3;
+        op = 4'b0001;
+        
+        #100
+                
+        //test negate a
+        a = 2;
+        b = 2;
+        op = 4'b0010;
+        
+        //test negate a
+        a = 1;
+        b = 2;
+        op = 4'b0010;
+        
+        #100
+        //test negative & subtraction
+        a = 2;
+        b = 1;
+        op = 4'b0011;
+           
+        #100;
+           
+        //test 0 & subtraction
+        a = 2;
+        b = 2;
+        op = 4'b0011;
+           
+        #100
+        
+        //test pass b
+        a = 0;
+        b = 4;
+        op = 4'b0100;
+        
+        #100
+        
+        //test pass b
+        a = 0;
+        b = 0;
+        op = 4'b0100;
+        
+       
+    end
+    
+    
+    
+    
+endmodule

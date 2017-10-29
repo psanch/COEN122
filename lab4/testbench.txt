@@ -1,0 +1,65 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/25/2017 03:19:16 PM
+// Design Name: 
+// Module Name: testbench
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module testbench;
+
+reg clock;
+
+//initialize one reg and three wires to pass 32 bits to all I/O on the buffers.
+reg [31:0] IF;
+wire [31:0] ID;
+wire [31:0] EX;
+wire [31:0] WB;
+
+IFID testifid(clock,IF,IF,ID,ID);
+
+IDEX testidex(clock,ID,ID,ID,ID,ID,ID,ID,ID,ID,ID,ID,ID,ID,ID,EX,EX,EX,EX,EX,EX,EX,EX,EX,EX,EX,EX,EX,EX);
+
+EXWB testexwb(clock,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB,EX,WB);
+
+initial
+begin
+    clock = 0;
+    forever #25 clock = ~clock;
+    //create a clock that will tick every 25 time
+end
+
+initial 
+begin
+    //test cases show that, for every 50 time, the value will propagate through the various buffers
+    IF = 1;
+    #50
+    
+    IF = 2;
+    #50
+    
+    IF = 3;
+    #50;
+    
+    IF = 4;
+    #50
+    
+    IF = 5;
+end
+
+
+endmodule
