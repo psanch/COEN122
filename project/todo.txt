@@ -1,0 +1,50 @@
+TODO:
+
+Control Unit:
+  Takes in 4 bit opcode
+
+  spit out (13 bits)
+    ryan does:
+    5 bit exout
+    7 bit memout
+
+---
+NOOP
+  PC = PC+4
+
+LOADPC
+
+LOAD
+
+STORE
+
+ADD
+
+INCREMENT
+
+NEGATE
+
+SUBTRACT
+
+JUMP
+
+BRANCH IF ZERO
+
+JUMP MEMORY
+
+BRANCH IF NEGATIVE
+
+SUM
+
+
+--
+Create an instruction set(HEX or BIN)
+if we use hex we have to convert
+--
+Configure the ControlUnit
+--
+configure all our files from previous labs to collaborate all of our old work:
+  we will need the adder in the tester
+  connect instruction_memory -> IF/ID Buffer
+
+--
