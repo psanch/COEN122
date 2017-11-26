@@ -2,11 +2,11 @@ module extend(into,out);
 input [21:0] into;
 output reg [31:0] out;
 
-always @(in)
+always @(into)
 begin
-	out[21:0] = in;
+	out[21:0] = into;
 
-	if( in[21] == 0 )
+	if( into[21] == 0 )
 	begin
 		out[31:22] = 10'b0000000000;
 	end	
