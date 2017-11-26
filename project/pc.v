@@ -3,15 +3,15 @@
 
 module PC(clock, in, out);
 input clock;
-input [31:0]in;
+input [7:0]in;
 
-reg [31:0]instr;
+reg [7:0]instr;
 
-output reg [31:0]out;
+output reg [7:0]out;
 
 always @(posedge clock) begin
-	out <= instr;
-	instr <= in;
+	out = instr;
+	instr = in;
 end
 initial begin
     out = 1;
