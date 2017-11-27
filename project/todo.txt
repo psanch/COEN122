@@ -1,5 +1,9 @@
 TODO:
 
+**instruction memory is an 8-bit address instead of 32-bit
+
+**control we are setting LDPC,INCREMENT and ADD as A+B: for the first two we need B = 1;
+
 Control Unit:
   Takes in 4 bit opcode
 
@@ -48,3 +52,22 @@ configure all our files from previous labs to collaborate all of our old work:
   connect instruction_memory -> IF/ID Buffer
 
 --
+
+AND
+adder
+control
+datamem
+exwb
+idex
+ifid
+intruscmem
+mux
+or
+pc
+regfile
+signextend
+test
+alu
+
+
+

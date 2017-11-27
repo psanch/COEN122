@@ -1,4 +1,4 @@
-module and(a,b,c)
+module and(a,b,c);
 input a;
 input b;
 
@@ -18,8 +18,6 @@ begin
 end
 initial
 begin
-	a=0;
-	b=0;
 	c=0;
 end
 endmodule

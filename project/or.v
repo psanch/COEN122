@@ -1,4 +1,4 @@
-module or(a,b,c)
+module or(a,b,c);
 input a;
 input b;
 
@@ -19,8 +19,6 @@ end
 
 initial
 begin
-	a = 0;
-	b = 0;
 	c = 0;
 end
 endmodule
